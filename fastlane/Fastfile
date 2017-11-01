@@ -446,12 +446,12 @@ platform :android do
 #        old_string: 'package com.mattermost.rnbeta;',
 #        new_string: 'package com.mattermost.rn;'
 #    )
-#
-#    find_replace_string(
-#        path_to_file: './fastlane/metadata/android/en-US/title.txt',
-#        old_string: 'Mattermost Beta',
-#        new_string: 'Mattermost'
-#    )
+
+    find_replace_string(
+        path_to_file: './fastlane/metadata/android/en-US/title.txt',
+        old_string: 'Mattermost Beta',
+        new_string: 'Mattermost'
+    )
 
     configure_from_env()
   end
