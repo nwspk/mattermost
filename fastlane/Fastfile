@@ -368,90 +368,90 @@ platform :android do
   end
 
   def prepare_release
-    android_change_package_identifier(newIdentifier: 'com.mattermost.rn', manifest: './android/app/src/main/AndroidManifest.xml')
-    android_change_string_app_name(newName: 'Mattermost', stringsFile: './android/app/src/main/res/values/strings.xml')
-    android_update_application_id(app_folder_name: 'android/app', application_id: 'com.mattermost.rn')
-
-    sh 'mv ../android/app/src/main/java/com/mattermost/rnbeta/ ../android/app/src/main/java/com/mattermost/rn/'
+#    android_change_package_identifier(newIdentifier: 'com.mattermost.rn', manifest: './android/app/src/main/AndroidManifest.xml')
+#    android_change_string_app_name(newName: 'Mattermost', stringsFile: './android/app/src/main/res/values/strings.xml')
+#    android_update_application_id(app_folder_name: 'android/app', application_id: 'com.mattermost.rn')
+#
+#    sh 'mv ../android/app/src/main/java/com/mattermost/rnbeta/ ../android/app/src/main/java/com/mattermost/rn/'
     sh 'cp -R ../assets/release/icons/android/* ../android/app/src/main/res/'
 
-    find_replace_string(
-        path_to_file: './android/app/src/main/java/com/mattermost/rn/MainApplication.java',
-        old_string: 'return BuildConfig.DEBUG;',
-        new_string: 'return false;'
-    )
+#    find_replace_string(
+#        path_to_file: './android/app/src/main/java/com/mattermost/rn/MainApplication.java',
+#        old_string: 'return BuildConfig.DEBUG;',
+#        new_string: 'return false;'
+#    )
 
-    find_replace_string(
-        path_to_file: './android/app/src/main/java/com/mattermost/rn/MainApplication.java',
-        old_string: 'package com.mattermost.rnbeta;',
-        new_string: 'package com.mattermost.rn;'
-    )
-
-    find_replace_string(
-        path_to_file: './android/app/src/main/java/com/mattermost/rn/CustomPushNotification.java',
-        old_string: 'package com.mattermost.rnbeta;',
-        new_string: 'package com.mattermost.rn;'
-    )
-
-    find_replace_string(
-        path_to_file: './android/app/src/main/java/com/mattermost/rn/MainActivity.java',
-        old_string: 'package com.mattermost.rnbeta;',
-        new_string: 'package com.mattermost.rn;'
-    )
-
-    find_replace_string(
-        path_to_file: './android/app/src/main/java/com/mattermost/rn/NotificationsLifecycleFacade.java',
-        old_string: 'package com.mattermost.rnbeta;',
-        new_string: 'package com.mattermost.rn;'
-    )
-
-    find_replace_string(
-        path_to_file: './android/app/src/main/java/com/mattermost/rn/NotificationDismissService.java',
-        old_string: 'package com.mattermost.rnbeta;',
-        new_string: 'package com.mattermost.rn;'
-    )
-
-    find_replace_string(
-        path_to_file: './android/app/src/main/java/com/mattermost/rn/NotificationReplyService.java',
-        old_string: 'package com.mattermost.rnbeta;',
-        new_string: 'package com.mattermost.rn;'
-    )
-
-    find_replace_string(
-        path_to_file: './android/app/src/main/java/com/mattermost/rn/NotificationPreferencesModule.java',
-        old_string: 'package com.mattermost.rnbeta;',
-        new_string: 'package com.mattermost.rn;'
-    )
-
-    find_replace_string(
-        path_to_file: './android/app/src/main/java/com/mattermost/rn/NotificationPreferences.java',
-        old_string: 'package com.mattermost.rnbeta;',
-        new_string: 'package com.mattermost.rn;'
-    )
-
-    find_replace_string(
-        path_to_file: './android/app/src/main/java/com/mattermost/rn/MattermostManagedModule.java',
-        old_string: 'package com.mattermost.rnbeta;',
-        new_string: 'package com.mattermost.rn;'
-    )
-
-    find_replace_string(
-        path_to_file: './android/app/src/main/java/com/mattermost/rn/MattermostPackage.java',
-        old_string: 'package com.mattermost.rnbeta;',
-        new_string: 'package com.mattermost.rn;'
-    )
-
-    find_replace_string(
-        path_to_file: './android/app/BUCK',
-        old_string: 'package com.mattermost.rnbeta;',
-        new_string: 'package com.mattermost.rn;'
-    )
-
-    find_replace_string(
-        path_to_file: './fastlane/metadata/android/en-US/title.txt',
-        old_string: 'Mattermost Beta',
-        new_string: 'Mattermost'
-    )
+#    find_replace_string(
+#        path_to_file: './android/app/src/main/java/com/mattermost/rn/MainApplication.java',
+#        old_string: 'package com.mattermost.rnbeta;',
+#        new_string: 'package com.mattermost.rn;'
+#    )
+#
+#    find_replace_string(
+#        path_to_file: './android/app/src/main/java/com/mattermost/rn/CustomPushNotification.java',
+#        old_string: 'package com.mattermost.rnbeta;',
+#        new_string: 'package com.mattermost.rn;'
+#    )
+#
+#    find_replace_string(
+#        path_to_file: './android/app/src/main/java/com/mattermost/rn/MainActivity.java',
+#        old_string: 'package com.mattermost.rnbeta;',
+#        new_string: 'package com.mattermost.rn;'
+#    )
+#
+#    find_replace_string(
+#        path_to_file: './android/app/src/main/java/com/mattermost/rn/NotificationsLifecycleFacade.java',
+#        old_string: 'package com.mattermost.rnbeta;',
+#        new_string: 'package com.mattermost.rn;'
+#    )
+#
+#    find_replace_string(
+#        path_to_file: './android/app/src/main/java/com/mattermost/rn/NotificationDismissService.java',
+#        old_string: 'package com.mattermost.rnbeta;',
+#        new_string: 'package com.mattermost.rn;'
+#    )
+#
+#    find_replace_string(
+#        path_to_file: './android/app/src/main/java/com/mattermost/rn/NotificationReplyService.java',
+#        old_string: 'package com.mattermost.rnbeta;',
+#        new_string: 'package com.mattermost.rn;'
+#    )
+#
+#    find_replace_string(
+#        path_to_file: './android/app/src/main/java/com/mattermost/rn/NotificationPreferencesModule.java',
+#        old_string: 'package com.mattermost.rnbeta;',
+#        new_string: 'package com.mattermost.rn;'
+#    )
+#
+#    find_replace_string(
+#        path_to_file: './android/app/src/main/java/com/mattermost/rn/NotificationPreferences.java',
+#        old_string: 'package com.mattermost.rnbeta;',
+#        new_string: 'package com.mattermost.rn;'
+#    )
+#
+#    find_replace_string(
+#        path_to_file: './android/app/src/main/java/com/mattermost/rn/MattermostManagedModule.java',
+#        old_string: 'package com.mattermost.rnbeta;',
+#        new_string: 'package com.mattermost.rn;'
+#    )
+#
+#    find_replace_string(
+#        path_to_file: './android/app/src/main/java/com/mattermost/rn/MattermostPackage.java',
+#        old_string: 'package com.mattermost.rnbeta;',
+#        new_string: 'package com.mattermost.rn;'
+#    )
+#
+#    find_replace_string(
+#        path_to_file: './android/app/BUCK',
+#        old_string: 'package com.mattermost.rnbeta;',
+#        new_string: 'package com.mattermost.rn;'
+#    )
+#
+#    find_replace_string(
+#        path_to_file: './fastlane/metadata/android/en-US/title.txt',
+#        old_string: 'Mattermost Beta',
+#        new_string: 'Mattermost'
+#    )
 
     configure_from_env()
   end
